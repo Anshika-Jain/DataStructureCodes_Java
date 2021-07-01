@@ -36,7 +36,7 @@ class LinkedList{
         size++;
         cout<<"New node inserted"<<endl;
     }
-
+    //first element in even
     int middleEle(){
         
         node* slow = head;
@@ -49,7 +49,19 @@ class LinkedList{
 
         return slow->data;
     }
+    //second element in even
+    int middleElem(){
+        
+        node* slow = head;
+        node* fast = head;
 
+         while (fast != NULL && fast->next != NULL){
+            slow = slow->next;
+            fast = fast->next->next;
+        }
+
+        return slow->data;
+    }
     void sizeOfList(){
         cout<<size<<endl;
     }
@@ -71,20 +83,35 @@ int main()
   
     L.InsertAtEnd(2);
     L.InsertAtEnd(7);
+
+    L.display();
+   
+    cout<<"First element in even:"<<L.middleEle()<<endl;
+    cout<<"Second element in even:"<<L.middleElem()<<endl;
+
     L.InsertAtEnd(3);
+
+      L.display();
+   
+    cout<<"First element in even:"<<L.middleEle()<<endl;
+    cout<<"Second element in even:"<<L.middleElem()<<endl;
+
     L.InsertAtEnd(9);
    
 
     L.display();
-    L.sizeOfList();
-
-    cout<<L.middleEle()<<endl;
+   
+    cout<<"First element in even:"<<L.middleEle()<<endl;
+    cout<<"Second element in even:"<<L.middleElem()<<endl;
 
     L.InsertAtEnd(8);
-    L.display();
-    L.sizeOfList();
 
-    cout<<L.middleEle()<<endl;
+     L.display();
+   
+    cout<<"First element in even:"<<L.middleEle()<<endl;
+    cout<<"Second element in even:"<<L.middleElem()<<endl;
+
+   
 
     
    
@@ -92,15 +119,20 @@ int main()
 }
 
 //output
-
 New node inserted
 New node inserted
+2 7
+First element in even:2
+Second element in even:7
 New node inserted
+2 7 3
+First element in even:7
+Second element in even:7
 New node inserted
 2 7 3 9
-4
-7
+First element in even:7
+Second element in even:3
 New node inserted
-2 7 3 9 8        
-5
-3
+2 7 3 9 8
+First element in even:3
+Second element in even:3
